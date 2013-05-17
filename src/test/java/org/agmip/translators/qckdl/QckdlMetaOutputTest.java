@@ -1,5 +1,6 @@
 package org.agmip.translators.qckdl;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -8,6 +9,7 @@ import java.io.OutputStream;
 import java.net.URL;
 import org.junit.Before;
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  * Unit test for simple App.
@@ -35,5 +37,8 @@ public class QckdlMetaOutputTest {
         output.writeFile(os, is);
         os.close();
         is.close();
+        File out = new File("metadata.csv");
+        assertTrue(out.exists());
+        out.delete();
     }
 }

@@ -94,9 +94,9 @@ public class QckdlMetaOutput {
 
     private String escapeCsvStr(String str, boolean isRestricted, String altVal) {
         if (isRestricted) {
-            return escapeCsvStr(str);
-        } else {
             return escapeCsvStr(altVal);
+        } else {
+            return escapeCsvStr(str);
         }
     }
 
