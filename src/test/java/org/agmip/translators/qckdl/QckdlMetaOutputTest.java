@@ -31,7 +31,9 @@ public class QckdlMetaOutputTest {
     public void test() throws IOException, Exception {
 
         InputStream is = new FileInputStream(resource.getPath());
-        OutputStream os = new FileOutputStream("output/metadata.csv");
+        OutputStream os = new FileOutputStream("metadata.csv");
         output.writeFile(os, is);
+        os.close();
+        is.close();
     }
 }

@@ -33,7 +33,7 @@ public class QckdlMetaOutput {
         StringBuilder sb = new StringBuilder();
 
         for (AceExperiment exp : data.getExperiments()) {
-
+            
             String agmipDate = exp.getValueOr("agmip_date", "");
             String agmipRater = exp.getValueOr("agmip_rater", "");
             String exDistrib = exp.getValueOr("ex_distrib", "");
@@ -76,6 +76,7 @@ public class QckdlMetaOutput {
             sb.append(escapeCsvStr(exp.getValueOr("obs_time_series_data", ""), isExpDistrib)).append("\r\n");
         }
         out.write(sb.toString().getBytes());
+        out.flush();
     }
 
     private void loadTitle(OutputStream out) throws IOException {
