@@ -7,6 +7,7 @@ import org.agmip.ace.AceDataset;
 import org.agmip.ace.AceExperiment;
 import org.agmip.ace.io.AceParser;
 import org.agmip.ace.lookup.LookupCodes;
+import static org.agmip.acmo.util.AcmoUtil.escapeCsvStr;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -97,25 +98,6 @@ public class QckdlMetaOutput {
             return escapeCsvStr(altVal);
         } else {
             return escapeCsvStr(str);
-        }
-    }
-
-    private String escapeCsvStr(String str) {
-        if (str != null || str.equals("")) {
-            boolean needQuote = false;
-            if (str.contains("\"")) {
-                str = str.replaceAll("\"", "\"\"");
-                needQuote = true;
-            }
-            if (!needQuote && str.contains(",")) {
-                needQuote = true;
-            }
-            if (needQuote) {
-                str = "\"" + str + "\"";
-            }
-            return str;
-        } else {
-            return "";
         }
     }
 }
